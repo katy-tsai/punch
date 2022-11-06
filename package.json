@@ -1,0 +1,28 @@
+{
+  "name": "punch",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/katy-tsai/punch.git",
+  "author": "katy <katytsai.git@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0",
+    "electron": "^21.2.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.6",
+    "node-notifier": "^10.0.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "clock.icns"
+      }
+    }
+  }
+}
