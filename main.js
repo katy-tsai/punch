@@ -5,10 +5,13 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 550,
     height: 100,
+    show: false,
+    //frame: false,
+    //transparent: true,
+    //autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      preload: path.join(app.getAppPath(), "index.html"),
     },
   });
 
@@ -18,6 +21,9 @@ const createWindow = () => {
     win.hide();
   });
   createTray();
+  win.once("ready-to-show", () => {
+    win.show();
+  });
 };
 
 const createTray = () => {
