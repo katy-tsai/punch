@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Tray, Menu, nativeImage } = require("electron");
 const path = require("path");
+
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 550,
@@ -7,6 +8,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      preload: path.join(app.getAppPath(), "index.html"),
     },
   });
 
@@ -20,7 +22,7 @@ const createWindow = () => {
 
 const createTray = () => {
   let appIcon = null;
-  const iconPath = path.join(__dirname, "clock.ico");
+  const iconPath = path.join(app.getAppPath(), "icon.icns");
   console.log("iconPath", iconPath);
 
   const contextMenu = Menu.buildFromTemplate([

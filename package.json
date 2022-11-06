@@ -6,9 +6,9 @@
   "author": "katy <katytsai.git@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "npx @electron-forge/cli make --platform darwin"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0",
@@ -16,13 +16,34 @@
   },
   "dependencies": {
     "dayjs": "^1.11.6",
+    "electron-squirrel-startup": "^1.0.0",
     "node-notifier": "^10.0.1"
   },
   "config": {
     "forge": {
-      "packagerConfig": {
-        "icon": "clock.icns"
+     "packagerConfig":{
+       "icon":"clock.icns"
+     }
+    },
+    "makers": [
+      {
+        "name": "@electron-forge/maker-squirrel",
+        "config": {
+          "name": "exercent"
+        }
+      },
+      {
+        "name": "@electron-forge/maker-zip",
+        "platforms": []
+      },
+      {
+        "name": "@electron-forge/maker-deb",
+        "config": {}
+      },
+      {
+        "name": "@electron-forge/maker-rpm",
+        "config": {}
       }
-    }
+    ]
   }
 }
